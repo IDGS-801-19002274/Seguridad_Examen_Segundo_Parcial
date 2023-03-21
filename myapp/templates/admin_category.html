@@ -2,7 +2,7 @@
 
 {%block content%}
 <section class="is-admin" style="min-height: 100vh;">
-    <div class="container" style="padding-top: 6rem;">
+    <div class="container admin-zone" style="padding-top: 6rem;">
         <h1 class="title is-1 has-text-white">Administrador > Categorías</h1>
 
         <section class="section is-blur">
@@ -23,7 +23,8 @@
               </form>
             </div>
         </section>
-<br>
+        <br>
+        <hr class="is-divider">
         {%if categorias%}
         <section>
             <h1 class="title is-2 has-text-white">Listado de categorías</h1>
@@ -41,7 +42,7 @@
                 <form method="POST" action="/admin/update/categoria">
                 <tr>
                     <td>
-                        <input type="hidden" name="id" value="{{categoria.id}}">
+                        {{labelField(form.id, value = categoria.id)}}
                         {{labelField(form.name, value = categoria.name)}}
                     </td>
                     <td>
@@ -51,6 +52,7 @@
                     <td>
                         <form method="POST" action="/admin/delete/categoria">
                             <input type="hidden" name="id" value="{{categoria.id}}">
+                            {{labelField(form.id, value = categoria.id)}}
                             <button type="submit" class="button is-fullwidth"><i class="material-icons">delete</i></button>
                         </form>
                     </td>

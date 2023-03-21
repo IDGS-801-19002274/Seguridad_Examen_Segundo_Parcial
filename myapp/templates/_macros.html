@@ -18,6 +18,19 @@
 {{field(class="input is-primary", **kwargs) | safe}}
 {% endmacro %}
 
+{% macro textAreaField(field) %}
+  {{ field.label(class="label has-text-white") }}
+  <div class="control">
+    {{ field(class="textarea input is-primary is-medium", **kwargs) | safe }}
+  </div>
+{% endmacro %}
+
+{% macro textAreaFieldNoLabel(field) %}
+  <div class="control">
+    <textarea class="textarea input is-primary is-medium" {{ kwargs }}> {{ field }} </textarea>
+  </div>
+{% endmacro %}
+
 {%macro submit_button(type)%}
 {%if type == 'delete'%}
 

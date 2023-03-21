@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, SubmitField, EmailField, PasswordField, validators, TextAreaField, DecimalRangeField, HiddenField
+from wtforms import Form, StringField, SubmitField, EmailField, PasswordField, validators, TextAreaField, DecimalField, HiddenField, SelectField
 
 class LoginForm(Form):
     name = StringField('Nombre', [
@@ -20,24 +20,24 @@ class LoginForm(Form):
     ])
 
 class ProductForm(Form):
+    id = HiddenField("id")
     name = StringField('Nombre', [
         validators.DataRequired(message='El nombre es obligatorio'),
         validators.length(min=4, max=50, message='Excede los límites de este campo')
     ])
-    short_desc = StringField('Descripción Corta', [
+    short_desc = TextAreaField('Descripción Corta', [
         validators.DataRequired(message='La descripción corta es obligatoria'),
         validators.length(min=4, max=50, message='Excede los límites de este campo')
     ])
     long_desc = TextAreaField('Descripción Larga', [
         validators.DataRequired(message='La descripción larga es obligatoria')
     ])
-    category = StringField('Categoría', [
-        validators.DataRequired(message='Categoría obligatoria'),
-    ])
+    category = SelectField('Categoría', coerce=str, validators=[
+        validators.DataRequired(message='Categoría obligatoria')])
     photo_url = StringField('URL de Foto', [
         validators.DataRequired(message='URL de foto obligatoria')
     ])
-    price = DecimalRangeField('Precio', [
+    price = DecimalField('Precio', [
         validators.DataRequired(message='Precio obligatorio')
     ])
 
