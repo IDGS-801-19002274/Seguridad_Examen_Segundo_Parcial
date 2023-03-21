@@ -1,0 +1,42 @@
+{% block header %}
+<!--<h1>{{user.name}}</h1>
+{%if user.name%}
+<a href="/usuario/logout">Cerrar sesión</a>
+{%endif%}-->
+<nav class="navbar is-blur is-dark is-fixed-top">
+    <div class="navbar-brand">
+        <div class="navbar- item" href="/tienda/index">
+            <img src="../static/img/logo.png" class="image is-64x64">
+        </div>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a href="/tienda/index" class="navbar-item {{'active has-text-success' if name == 'Inicio' else 'has-text-white'}}">INICIO</a>
+            <a class="navbar-item {{'active has-text-success' if name == 'Productos' else 'has-text-white'}} ">PRODUCTOS</a>
+            <a class="navbar-item {{'active has-text-success' if name == 'Contacto' else 'has-text-white'}} ">CONTACTO</a>
+            <a href="/admin/index" class="navbar-item {{'active has-text-success' if name == 'Admin' else 'has-text-white'}} ">ADMINISTRADOR</a>
+        </div>
+
+        <div class="navbar-end">
+            {%if user.name%}
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link title is-4"> {{user.username}} </a>
+        
+                <div class="navbar-dropdown is-blur">
+                  <p class="navbar-item title is-6 has-text-white">{{user.name}}</p>
+                  <a class="navbar-item has-text-white" href="/usuario/logout">
+                    Cerrar Sesión
+                  </a>
+            </div>
+            {%else%}
+            <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-primary is-outlined has-text-weight-bold" href="/usuario/register">Registrarse</a>
+                  <a class="button is-light is-outlined has-text-weight-bold" href="/usuario/login">Iniciar Sesión</a>
+                </div>
+            </div>
+            {%endif%}
+        </div>
+    </div>
+</nav>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{%block content%}
+<section class="hero is-dark is-fullheight is-forest">
+    <div class="hero-body forest-ground">
+      <div class="columns">
+        <div class="column is-two-thirds">
+          <h1 class="title is-size-1 is-bold has-text-white">¡Aprovecha nuestras ofertas!</h1>
+          <p class="subtitle is-size-4 has-text-white">Tenemos descuentos especiales en productos seleccionados. ¡No te los pierdas!</p>
+        </div>
+        <div class="column">
+          <div class="card is-blur">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://picsum.photos/id/1015/800/600" alt="Producto">
+              </figure>
+            </div>
+            <div class="card-content">
+              <h2 class="title is-size-4">Producto en oferta</h2>
+              <p class="subtitle is-size-5">Descripción corta del producto</p>
+              <a href="#" class="button is-success is-outlined is-fullwidth is-rounded has-text-weight-bold">Ver más</a>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+            <div class="card is-blur">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://picsum.photos/id/1015/800/600" alt="Producto">
+                </figure>
+              </div>
+              <div class="card-content">
+                <h2 class="title is-size-4">Producto en oferta</h2>
+                <p class="subtitle is-size-5">Descripción corta del producto</p>
+                <a href="#" class="button is-success is-outlined is-fullwidth is-rounded has-text-weight-bold">Ver más</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <br>
+  <section class="container">
+    <h1 class="title is-1 has-text-white">Conóce nuestros productos</h1>
+    <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+            {% for image in images %}
+            <div class="column is-one-third">
+              <div class="card is-blur">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="{{ image }}" alt="Imagen">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p class="title is-4 has-text-white">Título de la imagen</p>
+                    <p class="subtitle is-6 has-text-white">Descripción corta de la imagen</p>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item has-text-centered has-text-warning">
+                    Mostrar Objeto
+                  </a>
+                </footer>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-narrow">
+              <a href="#" class="button is-rounded is-outlined is-primary">
+                <span>Ir a ver más</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="is-divider">
+
+      <section class="section is-quarzo">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-narrow">
+              <div class="vertical-text">2023</div>
+            </div>
+            <div class="column">
+              <h1 class="title is-1">Mira todo nuestro catálogo</h1>
+              <a class="button is-warning is-rounded">Ver catálogo</a>
+            </div>
+            <div class="column is-narrow">
+              <figure class="stone-image">
+                <img src="../static/img/stone.png" alt="Imagen de piedra">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="is-divider">
+
+      <section class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://picsum.photos/640/480" alt="Imagen de persona random">
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <h3 class="title is-2 has-text-white">Conócenos</h3>
+              <p class="has-text-white">Somos una empresa comprometida con la calidad y el servicio al cliente. Desde nuestros inicios en 1995, nos hemos dedicado a proporcionar los mejores productos y servicios para nuestros clientes en todo el mundo.</p>
+              <br>
+              <a href="#" class="button is-rounded is-outlined is-primary">
+                <span>Ir a ver más</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+  </section>
+{%endblock%}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{%block content%}
+<section class="is-admin" style="min-height: 100vh;">
+    <div class="container" style="padding-top: 6rem;">
+        <h1 class="title is-1 has-text-white">Administrador > Productos</h1>
+
+        {%if categorias%}
+
+        {%else%}
+        <div class="notification is-danger">
+            <i class="material-icons">error_outline</i>
+        </span>
+            <strong>Ouch!:</strong> Parece que aún no hay ninguna categoría registrada y por ende no podrás registrar productos. 
+            <a href="/admin/categorias" class="button is-danger is-light">Crear Categorías</a>
+        </div>
+        {%endif%}
+
+        {%if productos%}
+
+        {%else%}
+        <div class="notification is-danger">
+            <i class="material-icons">error_outline</i>
+        </span>
+            <strong>Ouch!:</strong> Parece que aún no hay ningún producto registrado. Prueba añadiendo algunos para empezar.
+        </div>
+        {%endif%}
+    </div>
+</section>
+{%endblock%}
