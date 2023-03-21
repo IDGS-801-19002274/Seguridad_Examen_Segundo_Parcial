@@ -45,18 +45,18 @@
     <section class="section">
         <div class="container">
           <div class="columns is-multiline">
-            {% for image in images %}
+            {% for producto in productos %}
             <div class="column is-one-third">
               <div class="card is-blur">
                 <div class="card-image">
                   <figure class="image is-4by3">
-                    <img src="{{ image }}" alt="Imagen">
+                    <img src="{{ producto.photo_url }}" alt="Imagen">
                   </figure>
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <p class="title is-4 has-text-white">Título de la imagen</p>
-                    <p class="subtitle is-6 has-text-white">Descripción corta de la imagen</p>
+                    <p class="title is-4 has-text-white">{{producto.name}}</p>
+                    <p class="subtitle is-6 has-text-white">{{producto.short_desc}}</p>
                   </div>
                 </div>
                 <footer class="card-footer">

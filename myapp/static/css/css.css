@@ -56,6 +56,10 @@
   backdrop-filter: blur(0.2rem);
 }
 
+.is-blur .list:hover{
+  color: black !important;
+}
+
 .navbar-dropdown{
   border-top: none !important;
 }
@@ -83,4 +87,8 @@
 
 .admin-zone{
   padding-top: 6rem; background-color: rgba(0,0,0,0.5); min-height:100vh; padding-left: 1rem; padding-right: 1rem; padding-bottom: 3rem;
+}
+
+.tspecial{
+  margin-bottom: 0 !important;
 }

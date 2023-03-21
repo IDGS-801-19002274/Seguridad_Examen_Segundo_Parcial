@@ -82,8 +82,8 @@
                   <tr>
                     <td>{{labelField(form.id, value = producto.id)}}
                         {{labelField(form.name, value = producto.name)}}</td>
-                    <td>{{textAreaFieldNoLabel(producto.short_desc) }}</td>
-                    <td>{{textAreaFieldNoLabel(producto.long_desc) }}</td>
+                    <td>{{textAreaFieldNoLabel('short_desc', producto.short_desc) }}</td>
+                    <td>{{textAreaFieldNoLabel('long_desc', producto.long_desc) }}</td>
                     <td>{{renderField(form.category, class="select")}}</td>
                     <td>{{labelField(form.photo_url, value = producto.photo_url)}}
                         <img src="{{ producto.photo_url }}" alt="Miniatura de la imagen" width="100px"></td>

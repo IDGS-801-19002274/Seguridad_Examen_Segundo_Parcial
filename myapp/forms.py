@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, SubmitField, EmailField, PasswordField, validators, TextAreaField, DecimalField, HiddenField, SelectField
+from wtforms import Form, StringField, SubmitField, EmailField, PasswordField, validators, TextAreaField, DecimalField, HiddenField, SelectField, IntegerField
 
 class LoginForm(Form):
     name = StringField('Nombre', [
@@ -47,3 +47,8 @@ class CategoryForm(Form):
         validators.DataRequired(message='El nombre es obligatorio'),
         validators.length(min=4, max=50, message='Excede los límites de este campo')
     ])
+    
+class RoleForm(Form):
+    userId = HiddenField("userId")
+    roleId = SelectField('roleId', coerce=str)
+    

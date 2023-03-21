@@ -4,6 +4,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 import forms
 from models import Users, db, Role
+from decorator import logout_required
 
 usuario = Blueprint('usuario', __name__)
 
@@ -13,11 +14,13 @@ UserDataStore = SQLAlchemyUserDatastore(db, Users, Role)
 
 # LOGIN
 @usuario.route('/usuario/login', methods = ['GET'])
+@logout_required
 def show_Login():
     login_Form = forms.LoginForm(request.form)
     return render_template('login.html', name = 'Login', form = login_Form, user=current_user)
 
 @usuario.route('/usuario/login', methods=['POST'])
+@logout_required
 def login():
     username = request.form.get('username')
     password = request.form.get('password')
@@ -34,11 +37,13 @@ def login():
     
 #REGISTER
 @usuario.route('/usuario/register', methods=['GET'])
+@logout_required
 def show_Register():
     login_Form = forms.LoginForm(request.form)
     return render_template('register.html', name = 'Register', form = login_Form, user=current_user)
 
 @usuario.route('/usuario/register', methods = ['POST'])
+@logout_required
 def register():
     email = request.form.get('email')
     name = request.form.get('name')
@@ -63,6 +68,7 @@ def register():
 
 #LOGOUT
 @usuario.route('/usuario/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('usuario.show_Login'))

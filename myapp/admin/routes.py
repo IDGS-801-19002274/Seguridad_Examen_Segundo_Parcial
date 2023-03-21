@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint, render_template, request, url_for, redirect
 from flask_login import current_user
-from models import Categories, Products, db
+from models import Categories, Products, Users, Role, user_roles, db
 import forms
 
 admin = Blueprint('admin', __name__)
@@ -86,3 +86,23 @@ def delete_category():
     db.session.delete(categoria)
     db.session.commit()
     return redirect(url_for('admin.get_category'))
+
+#Usuarios
+@admin.route('/admin/users', methods=['GET'])
+def get_users():
+    usersForm = forms.RoleForm(request.form)
+    usuarios = Users.query.all()
+    roles = Role.query.all()
+    usersForm.roleId.choices = [(role.id, role.name) for role in roles]
+    return render_template('admin_user_index.html', name = 'Admin', user = current_user, usuarios = usuarios, form = usersForm)
+
+@admin.route('/admin/update/user', methods=['POST'])
+def update_users():
+    usersForm = forms.RoleForm(request.form)
+    user = user_roles(
+        userId = usersForm.userId.data,
+        roleId = usersForm.roleId.data
+    )
+    db.session.add(user)
+    db.session.commit()
+    return redirect(url_for('admin.get_users'))

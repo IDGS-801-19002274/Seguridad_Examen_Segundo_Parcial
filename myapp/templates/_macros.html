@@ -25,9 +25,9 @@
   </div>
 {% endmacro %}
 
-{% macro textAreaFieldNoLabel(field) %}
+{% macro textAreaFieldNoLabel(name, info) %}
   <div class="control">
-    <textarea class="textarea input is-primary is-medium" {{ kwargs }}> {{ field }} </textarea>
+    <textarea name="{{name}}" class="textarea input is-primary is-medium" {{ kwargs }}> {{ info }} </textarea>
   </div>
 {% endmacro %}
 
